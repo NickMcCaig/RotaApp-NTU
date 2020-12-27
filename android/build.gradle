@@ -7,8 +7,6 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:3.5.0'
         classpath 'com.google.gms:google-services:4.3.3'
-        implementation 'com.google.firebase:firebase-ml-vision:24.0.3'
-        implementation 'com.google.firebase:firebase-ml-vision-barcode-model:16.0.1
     }
 }
 
