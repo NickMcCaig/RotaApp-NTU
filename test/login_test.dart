@@ -14,7 +14,6 @@ void main() {
 
     await tester.pumpWidget(makeTestableWidget(child: loginScreen));
 
-    //expect(find.byType(FlutterLogo), findsOneWidget);
     expect(find.byType(OutlineButton), findsOneWidget);
     expect(find.text('Sign in with Google'), findsOneWidget);
 

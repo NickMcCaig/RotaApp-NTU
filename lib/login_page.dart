@@ -38,8 +38,7 @@ class _LoginPageState extends State<LoginPage> {
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Image.network(
-                  "https://raw.githubusercontent.com/NickMcCaig/Rotaimg/master/Logo_WithText.png"),
+              Image.asset("assets/Logo_WithText.png"),
               SizedBox(height: 50),
               _signInButton(),
             ],
