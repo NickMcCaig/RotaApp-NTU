@@ -22,6 +22,7 @@ import 'package:flutter/material.dart';
 import './shared/shared.dart';
 import './services/auth.dart';
 import './services/globals.dart';
+import 'Qrcode_Screen.dart';
 
 class FirstScreen extends StatelessWidget {
   @override
@@ -100,6 +101,19 @@ class FirstScreen extends StatelessWidget {
             ],
           ),
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) {
+                return QRCodePage();
+              },
+            ),
+          );
+        },
+        child: Icon(Icons.alarm_add),
+        backgroundColor: Colors.green,
       ),
       drawer: MyDrawer(),
     );
