@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-
-import '../shifts_screen.dart';
+import '../Screens/shifts_screen.dart';
+import '../Screens/GlobalStatus.dart';
 
 class MyDrawer extends StatelessWidget {
   @override
@@ -38,9 +38,17 @@ class MyDrawer extends StatelessWidget {
           title: Text('Profile'),
         ),
         ListTile(
-          leading: Icon(Icons.settings),
-          title: Text('Settings'),
-        ),
+            leading: Icon(Icons.settings),
+            title: Text('Settings'),
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) {
+                    return GlobalStatsScreen();
+                  },
+                ),
+              );
+            }),
       ],
     ));
   }

@@ -19,8 +19,9 @@
 // SOFTWARE.
 
 import 'package:flutter/material.dart';
+import 'package:sign_in_flutter/services/services.dart';
 import 'first_screen.dart';
-import 'services/auth.dart';
+import '../services/auth.dart';
 
 class LoginPage extends StatefulWidget {
   @override

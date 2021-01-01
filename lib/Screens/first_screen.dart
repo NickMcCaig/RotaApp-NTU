@@ -19,9 +19,8 @@
 // SOFTWARE.
 
 import 'package:flutter/material.dart';
-import './shared/shared.dart';
-import './services/auth.dart';
-import './services/globals.dart';
+import '../shared/shared.dart';
+import '../services/globals.dart';
 import 'Qrcode_Screen.dart';
 
 class FirstScreen extends StatelessWidget {

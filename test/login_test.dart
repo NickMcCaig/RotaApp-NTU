@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:sign_in_flutter/login_page.dart';
+import 'package:sign_in_flutter/Screens/login_page.dart';
 
 void main() {
   Widget makeTestableWidget({Widget child}) {

@@ -50,7 +50,6 @@ class Collection<T> {
 }
 
 class UserData<T> {
-  final FirebaseFirestore _db = FirebaseFirestore.instance;
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final String collection;
 

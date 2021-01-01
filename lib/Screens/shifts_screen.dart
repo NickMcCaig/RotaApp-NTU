@@ -1,12 +1,8 @@
-import 'dart:typed_data';
-
 import 'package:flutter/material.dart';
-import 'package:sign_in_flutter/login_page.dart';
-import './shared/shared.dart';
-import './services/services.dart';
+import '../services/services.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'Qrcode_Screen.dart';
+import '../shared/drawer.dart';
 
 class ShiftsScreen extends StatelessWidget {
   final FirebaseFirestore _db = FirebaseFirestore.instance;
@@ -83,6 +79,7 @@ class ShiftsScreen extends StatelessWidget {
         child: Icon(Icons.alarm_add),
         backgroundColor: Colors.green,
       ),
+      drawer: MyDrawer(),
     );
   }
 }
@@ -95,6 +92,6 @@ String getdayString(int startDay, int endDay) {
   }
 }
 
-String GetTimeString(int startTime, int endTime) {
+String getTimeString(int startTime, int endTime) {
   return startTime.toString() + " - " + endTime.toString();
 }

@@ -1,9 +1,7 @@
 import 'dart:ffi';
 
 import 'package:flutter/material.dart';
-import 'package:sign_in_flutter/services/db.dart';
-import 'shared/shared.dart';
-import 'services/globals.dart';
+import '../services/globals.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 final FirebaseFirestore db = FirebaseFirestore.instance;
@@ -122,9 +120,9 @@ Future<Void> clockFunc(
     QuerySnapshot querySnapshot = await db
         .collection('Schedule/$currentweekdoc/Shifts')
         .where('StaffID', isEqualTo: user.uid)
-        .where(stOrEndDay, isEqualTo: currentDay)
-        .where(stOrEndTime, isGreaterThanOrEqualTo: currentTime - 5)
-        .where(stOrEndTime, isLessThanOrEqualTo: currentTime + 5)
+        .where(stOrEndDay, isEqualTo: currentDay())
+        .where(stOrEndTime, isGreaterThanOrEqualTo: currentTime() - 5)
+        .where(stOrEndTime, isLessThanOrEqualTo: currentTime() + 5)
         .get();
     querySnapshot.docs.forEach((doc) async {
       doc.reference.update(<String, dynamic>{stOrEndClk: true});
