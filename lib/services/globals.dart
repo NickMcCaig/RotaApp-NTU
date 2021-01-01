@@ -23,8 +23,9 @@ int weekNumber(DateTime date) {
 }
 
 int currentWeek() {
-  var now = new DateTime.now();
-  return weekNumber(now);
+  return 40;
+  //var now = new DateTime.now();
+  //return weekNumber(now);
 }
 
 int currentTime() {
@@ -40,8 +41,9 @@ int currentDay() {
 }
 
 String currentYear() {
-  var now = new DateTime.now();
-  return now.year.toString();
+  return "2020";
+  //var now = new DateTime.now();
+  //return now.year.toString();
 }
 
 var dayMap = {
@@ -54,17 +56,17 @@ var dayMap = {
   7: 'Sunday'
 };
 User user = AuthService().getUser;
-Future<String> getWeekDoc({int futureWeek = 0}) async {
+Future<String> getWeekDoc(int currentweek) async {
   QuerySnapshot querySnapshot = await db
       .collection('Schedule')
       .where('StoreID', isEqualTo: currentStoreID)
-      .where('WeekCode', isEqualTo: currentWeek() + futureWeek)
-      .where('YearCode', isEqualTo: currentYear)
+      .where('WeekCode', isEqualTo: currentweek)
+      .where('YearCode', isEqualTo: currentYear())
       .get();
 
   if (querySnapshot.size == 1) {
     return querySnapshot.docs.first.id;
   } else {
-    return 'Error';
+    return null;
   }
 }

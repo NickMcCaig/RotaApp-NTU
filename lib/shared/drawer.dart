@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../Screens/shifts_screen.dart';
+import 'package:sign_in_flutter/Screens/ThreeWeek_shifts_screen.dart';
+import '../Screens/Current_shifts_screen.dart';
 import '../Screens/GlobalStatus.dart';
 
 class MyDrawer extends StatelessWidget {
@@ -28,7 +29,7 @@ class MyDrawer extends StatelessWidget {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (context) {
-                    return ShiftsScreen();
+                    return ThreeWeeksShiftsScreen();
                   },
                 ),
               );

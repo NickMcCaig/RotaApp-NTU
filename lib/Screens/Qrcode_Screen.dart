@@ -101,7 +101,7 @@ class ClockFormState extends State<MyCustomForm> {
 
 Future<Void> clockFunc(
     bool clkin, String checkCode, BuildContext context) async {
-  String currentweekdoc = await getWeekDoc();
+  String currentweekdoc = await getWeekDoc(currentWeek());
   String stOrEndDay;
   String stOrEndTime;
   String stOrEndClk;
