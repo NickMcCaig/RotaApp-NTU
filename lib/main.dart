@@ -24,7 +24,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'screens/login_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'services/services.dart';
-import 'Colours.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
