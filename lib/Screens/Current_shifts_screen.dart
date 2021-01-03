@@ -23,7 +23,7 @@ class CurrentShiftsScreen extends StatelessWidget {
                       return Text('loading');
 
                     case ConnectionState.waiting:
-                      return Text('Awaiting result...');
+                      return LinearProgressIndicator();
                       break;
                     case ConnectionState.active:
                       break;
@@ -46,6 +46,8 @@ class CurrentShiftsScreen extends StatelessWidget {
                                 child: Row(
                                   children: <Widget>[
                                     Expanded(
+                                        child: Icon(Icons.local_bar_outlined)),
+                                    Expanded(
                                       child: Text(documentSnapshot["Role"]),
                                     ),
                                     Expanded(
@@ -53,9 +55,6 @@ class CurrentShiftsScreen extends StatelessWidget {
                                     ),
                                     Expanded(
                                       child: Text(times),
-                                    ),
-                                    Expanded(
-                                      child: Text('<Date>'),
                                     )
                                   ],
                                 ),
