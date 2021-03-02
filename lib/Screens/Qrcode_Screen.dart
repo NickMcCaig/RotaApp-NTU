@@ -52,16 +52,27 @@ class ClockFormState extends State<MyCustomForm> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          TextFormField(
-            controller: checkCodeControler,
-            validator: (value) {
-              if (value.isEmpty) {
-                return 'Please enter your code';
-              } else if (value.length != 5) {
-                return 'Please enter the correct length code';
-              }
-              return null;
-            },
+          Row(
+            children: [
+              IconButton(
+                icon: Icon(Icons.qr_code),
+                color: Colors.blueGrey,
+                onPressed: () {},
+              ),
+              Flexible(
+                child: TextFormField(
+                  controller: checkCodeControler,
+                  validator: (value) {
+                    if (value.isEmpty) {
+                      return 'Please enter your code';
+                    } else if (value.length != 5) {
+                      return 'Please enter the correct length code';
+                    }
+                    return null;
+                  },
+                ),
+              ),
+            ],
           ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 16.0),

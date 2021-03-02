@@ -19,16 +19,16 @@
 // SOFTWARE.
 
 import 'package:flutter/material.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 import '../shared/shared.dart';
 import '../services/globals.dart';
-import 'Qrcode_Screen.dart';
 
-class FirstScreen extends StatelessWidget {
+class RegisterQrCodeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('HomePage'),
+        title: const Text('Register QR code'),
       ),
       body: Container(
         child: Center(
@@ -36,6 +36,10 @@ class FirstScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             mainAxisSize: MainAxisSize.max,
             children: <Widget>[
+              Text(
+                "Welcome " + user.displayName + "!",
+                style: TextStyle(fontSize: 40),
+              ),
               CircleAvatar(
                 backgroundImage: NetworkImage(
                   user.photoURL,
@@ -43,71 +47,33 @@ class FirstScreen extends StatelessWidget {
                 radius: 60,
                 backgroundColor: Colors.transparent,
               ),
-              SizedBox(height: 40),
-              Text(
-                'NAME',
-                style: TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black54),
+              Divider(),
+              QrImage(
+                data: user.uid,
+                version: QrVersions.auto,
+                size: 200.0,
               ),
+              Text("Show this QR code", style: TextStyle(fontSize: 40)),
               Text(
-                user.displayName,
-                style: TextStyle(
-                    fontSize: 25,
-                    color: Colors.deepPurple,
-                    fontWeight: FontWeight.bold),
-              ),
-              SizedBox(height: 20),
-              Text(
-                'EMAIL',
-                style: TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black54),
-              ),
-              Text(
-                user.email,
-                style: TextStyle(
-                    fontSize: 25,
-                    color: Colors.deepPurple,
-                    fontWeight: FontWeight.bold),
-              ),
+                  "You need to show this QR code to your supervisor to finish registration."),
               SizedBox(height: 40),
               RaisedButton(
                 onPressed: () async {
                   //stub
                 },
-                color: Colors.deepPurple,
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
-                    'Next',
-                    style: TextStyle(fontSize: 25, color: Colors.white),
+                    'Check',
+                    style: TextStyle(fontSize: 25),
                   ),
                 ),
                 elevation: 5,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(40)),
               )
             ],
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (context) {
-                return QRCodePage();
-              },
-            ),
-          );
-        },
-        child: Icon(Icons.alarm_add),
-        backgroundColor: Colors.green,
-      ),
-      drawer: MyDrawer(),
     );
   }
 }

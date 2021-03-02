@@ -6,6 +6,7 @@ class Shift {
   String staffID;
   String startClock;
   List<Dates> startTime;
+
   Shift(
       {this.endClock,
       this.latex,

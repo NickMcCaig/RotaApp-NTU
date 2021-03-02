@@ -4,9 +4,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'Qrcode_Screen.dart';
 import '../shared/drawer.dart';
 
-class CurrentShiftsScreen extends StatelessWidget {
+class StaffScreen extends StatelessWidget {
   final int currentweek;
-  CurrentShiftsScreen(this.currentweek);
+  final String userID;
+  StaffScreen(this.currentweek, this.userID);
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,7 @@ class CurrentShiftsScreen extends StatelessWidget {
         child: Column(
           children: <Widget>[
             FutureBuilder<QuerySnapshot>(
-                future: weekdocs(currentweek),
+                future: weekdocs(currentweek, userID),
                 builder: (context, snapshot) {
                   switch (snapshot.connectionState) {
                     case ConnectionState.none:
@@ -87,12 +88,12 @@ String getTimeString(int startTime, int endTime) {
   return startTime.toString() + " - " + endTime.toString();
 }
 
-Future<QuerySnapshot> weekdocs(int currentweek) async {
+Future<QuerySnapshot> weekdocs(int currentweek, String userID) async {
   final FirebaseFirestore _db = FirebaseFirestore.instance;
   String docid = await getWeekDoc(currentweek);
   QuerySnapshot snapshot = await _db
       .collection("Schedule/$docid/Shifts")
-      .where('StaffID', isEqualTo: user.uid)
+      .where('StaffID', isEqualTo: userID)
       .orderBy('StartDay')
       .get();
   return snapshot;

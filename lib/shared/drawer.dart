@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:sign_in_flutter/Screens/NewStaffMember_Screen.dart';
 import 'package:sign_in_flutter/Screens/ThreeWeek_shifts_screen.dart';
-import '../Screens/Current_shifts_screen.dart';
+import '../Screens/StaffManager_Page.dart';
 import '../Screens/GlobalStatus.dart';
 import '../services/globals.dart';
 
@@ -46,7 +47,7 @@ class MyDrawer extends StatelessWidget {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (context) {
-                    return GlobalStatsScreen();
+                    return StaffManagerScreen(currentStoreID);
                   },
                 ),
               );
@@ -58,14 +59,14 @@ class MyDrawer extends StatelessWidget {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (context) {
-                    return GlobalStatsScreen();
+                    return NewStaffMemberScreen();
                   },
                 ),
               );
             }),
         ListTile(
             leading: Icon(Icons.extension_sharp),
-            title: Text('<dev>'),
+            title: Text('test'),
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
@@ -77,7 +78,7 @@ class MyDrawer extends StatelessWidget {
             }),
         ListTile(
             leading: Icon(Icons.settings),
-            title: Text('Settings'),
+            title: Text('parks'),
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(

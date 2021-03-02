@@ -26,11 +26,14 @@ dependencies:
   firebase_core: ^0.5.0
   firebase_auth: ^0.18.4+1
   google_sign_in: ^4.5.3
+  qr_flutter: ^3.1.0
   font_awesome_flutter: 8.8.1
   rxdart: 0.23.1
   cloud_firestore: 0.14.4
   provider: 4.0.5
   intl: 0.16.1
+  qrscan: ^0.2.22
+
 
 dev_dependencies:
   flutter_test:
