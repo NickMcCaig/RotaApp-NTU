@@ -78,7 +78,7 @@ class MyDrawer extends StatelessWidget {
             }),
         ListTile(
             leading: Icon(Icons.settings),
-            title: Text('parks'),
+            title: Text('Settings'),
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(

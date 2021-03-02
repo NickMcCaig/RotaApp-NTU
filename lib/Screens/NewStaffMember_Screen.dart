@@ -33,10 +33,11 @@ class _StepperDemoState extends State<NewStaffMemberScreen> {
   bool isManager = false;
   bool isAdmin = false;
   String newid = '';
-  String name = '';
   String nickName = '';
   String phoneNumber = '';
   double payperhr = 0.0;
+  final nicknameController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,6 +65,7 @@ class _StepperDemoState extends State<NewStaffMemberScreen> {
                         children: <Widget>[
                           TextFormField(
                             decoration: InputDecoration(labelText: 'Nickname'),
+                            controller: nicknameController,
                           ),
                           TextFormField(
                             decoration:
@@ -146,8 +148,7 @@ class _StepperDemoState extends State<NewStaffMemberScreen> {
                           Text('You are about to add the following person'),
                           Row(
                             children: [
-                              Text('Name:'),
-                              Text(name),
+                              Text('Name: ' + nicknameController.text),
                             ],
                           )
                         ],
