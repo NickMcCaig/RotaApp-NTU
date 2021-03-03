@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sign_in_flutter/Screens/NewStaffMember_Screen.dart';
+import 'package:sign_in_flutter/Screens/Management/NewStaffMember_Screen.dart';
 import 'package:sign_in_flutter/Screens/ThreeWeek_shifts_screen.dart';
 import '../Screens/StaffManager_Page.dart';
 import '../Screens/GlobalStatus.dart';

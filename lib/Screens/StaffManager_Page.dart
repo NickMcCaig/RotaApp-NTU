@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sign_in_flutter/Screens/StaffShifts_Screen.dart';
 import 'package:sign_in_flutter/Screens/StaffTabs_Screen.dart';
+import 'package:sign_in_flutter/shared/manager/addmember.dart';
 import '../services/services.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'Qrcode_Screen.dart';
@@ -83,6 +84,7 @@ class StaffManagerScreen extends StatelessWidget {
           ],
         ),
       ),
+      floatingActionButton: FabNewMember(),
       drawer: MyDrawer(),
     );
   }

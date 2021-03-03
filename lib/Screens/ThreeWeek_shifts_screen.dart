@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sign_in_flutter/Screens/Current_shifts_screen.dart';
+import 'package:sign_in_flutter/shared/fabqr.dart';
 import '../shared/shared.dart';
 import '../services/globals.dart';
-import 'Qrcode_Screen.dart';
 
 class ThreeWeeksShiftsScreen extends StatelessWidget {
   @override
@@ -28,19 +28,7 @@ class ThreeWeeksShiftsScreen extends StatelessWidget {
               new CurrentShiftsScreen(currentWeek() + 2),
             ],
           ),
-          floatingActionButton: FloatingActionButton(
-            onPressed: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) {
-                    return QRCodePage();
-                  },
-                ),
-              );
-            },
-            child: Icon(Icons.alarm_add),
-            backgroundColor: Colors.green,
-          ),
+          floatingActionButton: FabQR(),
           drawer: MyDrawer(),
         ),
       ),

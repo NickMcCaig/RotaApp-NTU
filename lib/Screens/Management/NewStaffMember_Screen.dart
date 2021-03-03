@@ -19,9 +19,9 @@
 // SOFTWARE.
 
 import 'package:flutter/material.dart';
-import '../shared/shared.dart';
-import '../services/globals.dart';
-import 'Qrcode_Screen.dart';
+import '../../shared/shared.dart';
+import '../../services/globals.dart';
+import '../Qrcode_Screen.dart';
 
 class NewStaffMemberScreen extends StatefulWidget {
   _StepperDemoState createState() => _StepperDemoState();
