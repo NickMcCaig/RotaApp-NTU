@@ -117,7 +117,7 @@ class _StepperDemoState extends State<NewStaffMemberScreen> {
                           : StepState.disabled,
                     ),
                     Step(
-                      title: new Text('Address'),
+                      title: new Text('UID'),
                       content: Column(
                         children: <Widget>[
                           Row(

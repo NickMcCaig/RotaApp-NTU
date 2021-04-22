@@ -1,6 +1,8 @@
 import 'dart:ffi';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 import '../services/globals.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
@@ -43,6 +45,13 @@ class ClockFormState extends State<MyCustomForm> {
   // not a GlobalKey<MyCustomFormState>.
   final _formKey = GlobalKey<FormState>();
   final checkCodeControler = TextEditingController();
+  Future<void> scanQRCode() async {
+    String qrCodescn = await FlutterBarcodeScanner.scanBarcode(
+        '#ff6666', 'Cancel', true, ScanMode.QR);
+    setState(() {
+      checkCodeControler.text = qrCodescn;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +66,7 @@ class ClockFormState extends State<MyCustomForm> {
               IconButton(
                 icon: Icon(Icons.qr_code),
                 color: Colors.blueGrey,
-                onPressed: () {},
+                onPressed: () => scanQRCode(),
               ),
               Flexible(
                 child: TextFormField(

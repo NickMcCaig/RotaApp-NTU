@@ -57,8 +57,7 @@ class FirstScreen extends StatelessWidget {
                               Row(
                                 children: [
                                   QrImage(
-                                    data:
-                                        "DSHEBEW", //TODO implement show checkcode stream to update.
+                                    data: "DSHEBEW",
                                     version: QrVersions.auto,
                                     size: 200.0,
                                   ),
@@ -74,10 +73,7 @@ class FirstScreen extends StatelessWidget {
                           child: Column(
                             children: [
                               Row(
-                                children: [
-                                  Text(
-                                      "You have {shiftno} hours this week.") //TODO implement shift count function
-                                ],
+                                children: [Text("You have 3 hours this week.")],
                               )
                             ],
                           ),
