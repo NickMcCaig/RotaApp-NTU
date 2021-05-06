@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import '../services/services.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'Qrcode_Screen.dart';
-import '../shared/drawer.dart';
 
 class CurrentShiftsScreen extends StatelessWidget {
   final int currentweek;

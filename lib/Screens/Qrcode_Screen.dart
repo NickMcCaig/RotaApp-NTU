@@ -74,7 +74,7 @@ class ClockFormState extends State<MyCustomForm> {
                   validator: (value) {
                     if (value.isEmpty) {
                       return 'Please enter your code';
-                    } else if (value.length != 5) {
+                    } else if (value.length != 6) {
                       return 'Please enter the correct length code';
                     }
                     return null;
@@ -147,7 +147,7 @@ Future<Void> clockFunc(
     querySnapshot.docs.forEach((doc) async {
       doc.reference.update(<String, dynamic>{stOrEndClk: true});
       Scaffold.of(context).showSnackBar(
-          SnackBar(content: Text('You have Sucsessfully Clocked')));
+          SnackBar(content: Text('You have clocked for your shift')));
     });
   } else {
     Scaffold.of(context)

@@ -69,7 +69,7 @@ class ClockFormState extends State<MyCustomForm> {
         children: <Widget>[
           Row(
             children: [
-              Text('You are Createing a new shift for' + staffID)
+              Text('You are Createing a new shift for Sam')
             ], //TODO add user name insted of uid
           ),
           Row(

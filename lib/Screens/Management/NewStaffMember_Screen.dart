@@ -22,6 +22,7 @@ import 'package:flutter/material.dart';
 import '../../shared/shared.dart';
 import '../../services/globals.dart';
 import '../Qrcode_Screen.dart';
+import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 
 class NewStaffMemberScreen extends StatefulWidget {
   _StepperDemoState createState() => _StepperDemoState();
@@ -36,7 +37,15 @@ class _StepperDemoState extends State<NewStaffMemberScreen> {
   String nickName = '';
   String phoneNumber = '';
   double payperhr = 0.0;
+  final uidControler = TextEditingController();
   final nicknameController = TextEditingController();
+  Future<void> scanQRCode() async {
+    String qrCodescn = await FlutterBarcodeScanner.scanBarcode(
+        '#ff6666', 'Cancel', true, ScanMode.QR);
+    setState(() {
+      uidControler.text = qrCodescn;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -125,11 +134,13 @@ class _StepperDemoState extends State<NewStaffMemberScreen> {
                               IconButton(
                                 icon: Icon(Icons.qr_code),
                                 color: Colors.blueGrey,
-                                onPressed: () {},
+                                onPressed: () {
+                                  scanQRCode();
+                                },
                               ),
                               Flexible(
                                 child: TextFormField(
-                                  decoration: InputDecoration(labelText: 'uid'),
+                                  controller: uidControler,
                                 ),
                               ),
                             ],

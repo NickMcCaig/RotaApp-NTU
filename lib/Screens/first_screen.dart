@@ -21,74 +21,90 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:qr_flutter/qr_flutter.dart';
+import 'package:sign_in_flutter/services/globals.dart';
 import 'package:sign_in_flutter/shared/fabqr.dart';
 import '../shared/shared.dart';
-import '../services/globals.dart';
-import 'Qrcode_Screen.dart';
 
 class FirstScreen extends StatelessWidget {
   final FirebaseFirestore db = FirebaseFirestore.instance;
-
+  String code = "B";
+  Stream documentStream = FirebaseFirestore.instance
+      .collection('CheckCodes')
+      .doc(currentStoreID)
+      .snapshots();
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('HomePage'),
-      ),
-      body: Container(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Center(
-            child: Column(
-              children: <Widget>[
-                Center(
-                  child: Column(
-                    children: [
-                      Card(
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
+    CollectionReference users =
+        FirebaseFirestore.instance.collection('CheckCodes');
+    return FutureBuilder<DocumentSnapshot>(
+        future: users.doc(currentStoreID).get(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.done) {
+            Map<String, dynamic> data = snapshot.data.data();
+            return Scaffold(
+              appBar: AppBar(
+                title: const Text('HomePage'),
+              ),
+              body: Container(
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Center(
+                    child: Column(
+                      children: <Widget>[
+                        Center(
                           child: Column(
                             children: [
-                              Row(
-                                children: [
-                                  Text("Employee QR code Clock"),
-                                ],
-                              ),
-                              Row(
-                                children: [
-                                  QrImage(
-                                    data: "DSHEBEW",
-                                    version: QrVersions.auto,
-                                    size: 200.0,
+                              Card(
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Column(
+                                    children: [
+                                      Row(
+                                        children: [
+                                          Text("Employee QR code Clock"),
+                                        ],
+                                      ),
+                                      Row(
+                                        children: [
+                                          QrImage(
+                                            data: data['CheckCode'].toString(),
+                                            version: QrVersions.auto,
+                                            size: 200.0,
+                                          ),
+                                        ],
+                                      )
+                                    ],
                                   ),
-                                ],
+                                ),
+                              ),
+                              Card(
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Column(
+                                    children: [
+                                      Row(
+                                        children: [
+                                          Text(
+                                              "Check your shifts on the shifts tab!")
+                                        ],
+                                      )
+                                    ],
+                                  ),
+                                ),
                               )
                             ],
                           ),
-                        ),
-                      ),
-                      Card(
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Column(
-                            children: [
-                              Row(
-                                children: [Text("You have 3 hours this week.")],
-                              )
-                            ],
-                          ),
-                        ),
-                      )
-                    ],
+                        )
+                      ],
+                    ),
                   ),
-                )
-              ],
-            ),
-          ),
-        ),
-      ),
-      floatingActionButton: FabQR(),
-      drawer: MyDrawer(),
-    );
+                ),
+              ),
+              floatingActionButton: FabQR(),
+              drawer: MyDrawer(),
+            );
+          }
+          return Text("loading");
+        });
   }
 }
