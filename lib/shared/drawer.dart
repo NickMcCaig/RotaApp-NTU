@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:sign_in_flutter/Screens/Management/NewShift_Screen.dart';
 import 'package:sign_in_flutter/Screens/Management/NewStaffMember_Screen.dart';
 import 'package:sign_in_flutter/Screens/ThreeWeek_shifts_screen.dart';
-import '../Screens/StaffManager_Page.dart';
-import '../Screens/GlobalStatus.dart';
+import '../Screens/Management/StaffManager_Page.dart';
+import '../Screens/Development/GlobalStatus.dart';
 import '../services/globals.dart';
+import '../Screens/Profile_screen.dart';
 
 class MyDrawer extends StatelessWidget {
   @override
@@ -40,6 +41,15 @@ class MyDrawer extends StatelessWidget {
         ListTile(
           leading: Icon(Icons.account_circle),
           title: Text('Profile'),
+                      onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) {
+                    return ProfileScreen();
+                  },
+                ),
+              );
+                      }
         ),
         ListTile(
             leading: Icon(Icons.people),
@@ -65,18 +75,7 @@ class MyDrawer extends StatelessWidget {
                 ),
               );
             }),
-        ListTile(
-            leading: Icon(Icons.extension_sharp),
-            title: Text('test'),
-            onTap: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) {
-                    return NewShiftScreen();
-                  },
-                ),
-              );
-            }),
+        
         ListTile(
             leading: Icon(Icons.settings),
             title: Text('Settings'),

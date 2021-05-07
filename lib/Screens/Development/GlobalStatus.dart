@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../shared/shared.dart';
-import '../services/globals.dart';
-import 'Qrcode_Screen.dart';
+import '../../shared/shared.dart';
+import '../../services/globals.dart';
+import '../Qrcode_Screen.dart';
 
 class GlobalStatsScreen extends StatelessWidget {
   @override

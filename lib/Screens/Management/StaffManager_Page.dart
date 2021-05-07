@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:sign_in_flutter/Screens/StaffShifts_Screen.dart';
 import 'package:sign_in_flutter/Screens/StaffTabs_Screen.dart';
 import 'package:sign_in_flutter/shared/manager/addmember.dart';
-import '../services/services.dart';
+import '../../services/services.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'Qrcode_Screen.dart';
-import '../shared/drawer.dart';
+import '../Qrcode_Screen.dart';
+import '../../shared/drawer.dart';
 
 class StaffManagerScreen extends StatelessWidget {
   final String storeID;
@@ -65,6 +65,12 @@ class StaffManagerScreen extends StatelessWidget {
                                             children: [
                                               Icon(Icons.person),
                                               Text(documentSnapshot["Name"]),
+                                            ],
+                                          ),
+                                         Row(
+                                            children: [
+                                              Icon(Icons.phone),
+                                              Text(documentSnapshot["PhoneNumber"]),
                                             ],
                                           ),
                                         ],
