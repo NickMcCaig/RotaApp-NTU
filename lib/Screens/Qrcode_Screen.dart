@@ -74,7 +74,7 @@ class ClockFormState extends State<MyCustomForm> {
                   validator: (value) {
                     if (value.isEmpty) {
                       return 'Please enter your code';
-                    } else if (value.length != 6) {
+                    } else if (value.length != 5) {
                       return 'Please enter the correct length code';
                     }
                     return null;
@@ -135,7 +135,7 @@ Future<Void> clockFunc(
     stOrEndTime = 'EndTime';
   }
   DocumentSnapshot codesc = await db.doc('CheckCodes/$currentStoreID').get();
-  String servCode = codesc['CheckCode'];
+  String servCode = codesc['CheckCode'].toString();
   if (servCode == checkCode) {
     QuerySnapshot querySnapshot = await db
         .collection('Schedule/$currentweekdoc/Shifts')
